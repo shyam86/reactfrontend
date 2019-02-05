@@ -1,28 +1,50 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+class App extends React.Component{
+  constructor(){
+    super();
+    
+    this.state = {
+      users: [],
+    }
+  }
+  
+  componentDidMount(){
+    fetch('http://localhost:3002/users')
+      .then(response => response.json())
+      .then(data => this.setState({ users: data }));
+  }
+  
+  render(){
+    const {users} = this.state;
+    
+    return(
+      <div>
+        <table className="t01" >
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Sobrenome</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((users)=>(
+              <tr >
+                <th scope="row"></th>
+                <td> {users.firstName} </td>
+                <td> {users.lastName} </td>
+                
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-    );
+    )
   }
 }
+
+
 
 export default App;
