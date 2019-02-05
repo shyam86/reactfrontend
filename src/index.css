@@ -34,3 +34,12 @@ table#t01 th {
   background-color: black;
   color: white;
 }
+#footer {
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+}
+
+.header {
+	box-shadow: 0 0 5px;
+}
