@@ -30,12 +30,3 @@
     transform: rotate(360deg);
   }
 }
-#footer {
-	position: fixed;
-	bottom: 0;
-	width: 100vw;
-}
-
-.header {
-	box-shadow: 0 0 5px;
-}
